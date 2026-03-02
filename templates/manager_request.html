@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Requests Dashboard</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+  <div id="main">
+    <div id="canvas">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+      <a class="navbar-brand" href="#">Welcome Manager!</a>
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Log Out</a>
+          </li>
+        </ul>
+       </div>
+      </div>
+      </nav>
+      <div id="content">
+        <h3 class="headings">All Reservations</h3>
+        <table class="table text-center border">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Table No.</th>
+              <th>Username</th>
+              <th>Date</th>
+              <th>Time Slot</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>1</th>
+              <td>T1</td>
+              <td>JohnDoe</td>
+              <td>2024-01-15</td>
+              <td>7PM-9PM</td>
+              <td>pending</td>
+              <td>
+                <a href="" class="btn btn-success mx-2">Approve</a>
+                <a href="" class="btn btn-danger">Reject</a>
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+        
+      </div> 
+    </div>
+  </div>
+</body>
+</html>

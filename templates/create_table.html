@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Create Table Form</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+  <div id="main">
+    <div id="canvas">
+      <div id="form-body">
+        <h2>Create Table</h2>
+        <div class="mb-3">
+          <label for="Input1" class="form-label">Table Number</label>
+          <input type="text" class="form-control" id="Input1" >
+        </div>
+        <div class="mb-3">
+          <label for="Input3" class="form-label">Capacity</label>
+          <input type="number" class="form-control" id="Input3" >
+        </div>
+        <div class="mb-3">
+          <label for="Input2" class="form-label">Location</label>
+          <select id="Input2" class="form-select" aria-label="Default select example">
+            <option value="Indoor">Indoor</option>
+            <option value="Outdoor">Outdoor</option>
+          </select>
+        </div>
+        <div class="text-center">
+          <input type="submit" class="btn btn-primary" value="Create">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
