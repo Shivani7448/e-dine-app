@@ -16,22 +16,24 @@
     <div id="canvas">
       <div id="form-body">
         <h2>Reservation Request</h2>
+        <form action="/reserve/{{tbl.id}}/{{user.id}}" method="post">
         <div class="mb-3">
           <label for="Input1" class="form-label">Table Number</label>
-          <input class="form-control" type="text" value="T1" aria-label="Disabled input example" disabled readonly>
+          <input class="form-control" type="text" value="{{tbl.table_number}}" aria-label="Disabled input example" disabled readonly>
         </div>
         <div class="mb-3">
           <label for="Input3" class="form-label">Date</label>
-          <input type="date" class="form-control" id="Input3" required>
+          <input type="date" class="form-control" id="Input3" name="date" required>
         </div>
         <div class="mb-3">
           <label for="Input4" class="form-label">Time Slot</label>
-          <input type="text" class="form-control" id="Input4" placeholder="e.g. 7PM-9PM" required>
+          <input type="text" class="form-control" id="Input4" name="time_slot" placeholder="e.g. 7PM-9PM" required>
         </div>
         
         <div class="text-center">
           <input type="submit" class="btn btn-primary" value="Reserve">
         </div>
+        </form>
       </div>
     </div>
   </div>

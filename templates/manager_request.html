@@ -10,15 +10,15 @@
     <div id="canvas">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-      <a class="navbar-brand" href="#">Welcome Manager!</a>
+      <a class="navbar-brand" href="#">Welcome {{this_user.username}}!</a>
       
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="/manager">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Log Out</a>
+            <a class="nav-link" href="/login">Log Out</a>
           </li>
         </ul>
        </div>
@@ -39,19 +39,24 @@
             </tr>
           </thead>
           <tbody>
+            {% for res in all_res %}
             <tr>
-              <th>1</th>
-              <td>T1</td>
-              <td>JohnDoe</td>
-              <td>2024-01-15</td>
-              <td>7PM-9PM</td>
-              <td>pending</td>
+              <th>{{res.id}}</th>
+              <td>{{res.table.table_number}}</td> 
+              <td>{{res.user.username}}</td>
+              <td>{{res.date}}</td>
+              <td>{{res.time_slot}}</td>
+              <td>{{res.status}}</td>
               <td>
-                <a href="" class="btn btn-success mx-2">Approve</a>
-                <a href="" class="btn btn-danger">Reject</a>
+                {% if res.status == "pending" %}
+                <a href="/approve/{{res.id}}" class="btn btn-success mx-2">Approve</a>
+                <a href="/reject/{{res.id}}" class="btn btn-danger">Reject</a>
+                {% else %}
+                   -
+                {% endif %}
               </td>
             </tr>
-            
+            {% endfor %}
           </tbody>
         </table>
         
@@ -60,3 +65,5 @@
   </div>
 </body>
 </html>
+<!-- res.table > <table>, res.table.table_number = <table>.table_number = T1-->
+<!-- res.user > <user>, res.user.username = <user>.username = Divya123-->

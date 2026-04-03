@@ -10,22 +10,24 @@
     <div id="canvas">
       <div id="form-body">
         <h2>Register Form</h2>
+        <form action="/register" method="post">
         <div class="mb-3">
           <label for="Input1" class="form-label">Username</label>
-          <input type="text" class="form-control" id="Input1" >
+          <input type="text" class="form-control" id="Input1" name="username">
         </div>
         <div class="mb-3">
           <label for="Input3" class="form-label">Email</label>
-          <input type="email" class="form-control" id="Input3" >
+          <input type="email" class="form-control" id="Input3" name="email">
         </div>
         <div class="mb-3">
           <label for="Input2" class="form-label">Password</label>
-          <input type="password" class="form-control" id="Input2" >
+          <input type="password" class="form-control" id="Input2" name="pwd">
         </div>
         <div class="text-center">
           <input type="submit" class="btn btn-primary" value="Register"><br>
-          Already registered? <a href="login.html">Login</a>
+          Already registered? <a href="/login">Login</a>
         </div>
+        </form>
       </div>
     </div>
   </div>

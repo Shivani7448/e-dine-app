@@ -16,18 +16,20 @@
     <div id="canvas">
       <div id="form-body">
         <h2>Login Form</h2>
+        <form action="/login" method="post">
         <div class="mb-3">
           <label for="Input1" class="form-label">Username</label>
-          <input type="text" class="form-control" id="Input1" >
+          <input type="text" class="form-control" id="Input1" name="username">
         </div>
         <div class="mb-3">
           <label for="Input2" class="form-label">Password</label>
-          <input type="password" class="form-control" id="Input2" >
+          <input type="password" class="form-control" id="Input2" name="pwd">
         </div>
         <div class="text-center">
           <input type="submit" class="btn btn-primary" value="Login"><br>
-          Are you a new user? <a href="register.html">Register</a>
+          Are you a new user? <a href="/register">Register</a>
         </div>
+        </form>
       </div>
     </div>
   </div>

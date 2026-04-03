@@ -12,4 +12,11 @@ def create_app():
 app = create_app()
 from application.controllers import * #controllers file resides in application folder
 if __name__ == "__main__":
+  with app.app_context():
+    db.create_all()
+    Manager = User.query.filter_by(role='manager').first()
+    if Manager is None:
+      Manager = User(username='manager1',email='manager@user.com',password='1234',role='manager')
+      db.session.add(Manager)
+      db.session.commit()
   app.run()

@@ -10,30 +10,35 @@
     <div id="canvas">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-      <a class="navbar-brand" href="#">Welcome Manager!</a>
+      <a class="navbar-brand" href="#">Welcome {{ this_user.username }}!</a>
       
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Requests</a>
+            <a class="nav-link active" aria-current="page" href="/manager/requests">Requests</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Summary</a>
+            <a class="nav-link" href="/summary">Summary</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Log Out</a>
+            <a class="nav-link" href="/login">Log Out</a>
           </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+        <form class="d-flex"action="/search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+              <select class="form-select me-2" aria-label="Default select example" name="key">
+                    <option value="user">User</option>
+                    <option value="table">Table </option>
+              </select>
+              <input class="btn btn-outline-success" type="submit" value="Search">
         </form>
        </div>
       </div>
       </nav>
-      <div id="content">
+      <div id="content" >
         <h3 class="headings">Manage Tables</h3>
-        <table class="table text-center border">
+        <div style="max-height:400px;overflow-y: scroll;">
+        <table class="table text-center border" >
           <thead>
             <tr>
               <th>ID</th>
@@ -45,22 +50,24 @@
             </tr>
           </thead>
           <tbody>
+            {% for tbl in all_tables %}
             <tr>
-              <th>1</th>
-              <td>T1</td>
-              <td>10</td>
-              <td>Indoor</td>
-              <td>available</td>
+              <th>{{tbl.id}}</th>
+              <td>{{tbl.table_number}}</td>
+              <td>{{tbl.capacity}}</td>
+              <td>{{tbl.location}}</td>
+              <td>{{tbl.status}}</td>
               <td>
-                <a href="" class="btn btn-warning mx-2">Update</a>
-                <a href="" class="btn btn-danger">Delete</a>
+                <a href="/update_table/{{tbl.id}}" class="btn btn-warning mx-2">Update</a>
+                <a href="/delete_table/{{tbl.id}}" class="btn btn-danger">Delete</a>
               </td>
             </tr>
-            
+            {% endfor %}
           </tbody>
         </table>
+        </div>
         <div class="text-end">
-          <a href="" class="btn btn-primary mx-3 my-5">Create Table</a>
+          <a href="/create_table" class="btn btn-primary mx-3 my-5">Create Table</a>
         </div>
       </div> 
     </div>

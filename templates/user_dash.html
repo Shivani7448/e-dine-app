@@ -10,15 +10,15 @@
     <div id="canvas">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-      <a class="navbar-brand" href="#">Welcome User1!</a>
+      <a class="navbar-brand" href="#">Welcome {{this_user.username}}!</a>
       
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Requests</a>
+            <a class="nav-link active" aria-current="page" href="/user/requests/{{this_user.id}}">Requests</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Log Out</a>
+            <a class="nav-link" href="/login">Log Out</a>
           </li>
         </ul>
         <form class="d-flex">
@@ -41,15 +41,24 @@
             </tr>
           </thead>
           <tbody>
+            {% for tbl in all_tables %}
             <tr>
-              <th>1</th>
-              <td>T1</td>
-              <td>10</td>
-              <td>Indoor</td>
+              <th>{{tbl.id}}</th>
+              <td>{{tbl.table_number}}</td>
+              <td>{{tbl.capacity}}</td>
+              <td>{{tbl.location}}</td>
+              <!-- <td>
+                <a href="/reserve/{{tbl.id}}/{{this_user.id}}" class="btn btn-primary mx-2">Reserve</a>
+              </td> -->
               <td>
-                <a href="" class="btn btn-primary mx-2">Reserve</a>
+                {% if tbl.status == 'available' %}
+                <a href="/reserve/{{tbl.id}}/{{this_user.id}}" class="btn btn-primary">Reserve</a>
+                {% else %}
+                Unavailable
+                {% endif %}
               </td>
-            </tr> 
+            </tr>
+            {% endfor %}
           </tbody>
         </table>
       </div> 

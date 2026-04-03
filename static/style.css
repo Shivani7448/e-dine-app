@@ -3,9 +3,11 @@
   border: 2px solid black;
 }
 #canvas{
-  width:60%;
-  height:780px;
+  width:65%;
+  height:700px;
   margin:auto;
+  /* margin-top: 10px; */
+  
 }
 #form-body{
   border: 1px solid grey;
